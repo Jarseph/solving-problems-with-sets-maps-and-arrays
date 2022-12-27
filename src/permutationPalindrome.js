@@ -3,15 +3,15 @@
  * @param {string} word The word to check
  */
 function permutationPalindrome(word) {
-  const charSet = new Set();
-  word.split("").forEach((char) => {
-    if (charSet.has(char)) {
-      charSet.delete(char);
+  const wordSet = new Set();
+  word.split("").forEach((e) => {
+    if (wordSet.has(e)) {
+      wordSet.delete(e);
     } else {
-      charSet.add(char);
+      wordSet.add(e);
     }
-  });
-  return charSet.size <= 1;
+  })
+  return wordSet.size <= 1;
 }
 
 module.exports = permutationPalindrome;
