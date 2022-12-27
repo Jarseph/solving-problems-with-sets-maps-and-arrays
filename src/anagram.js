@@ -4,20 +4,16 @@
  * @param {string} s2
  */
 function anagram(s1, s2) {
-  if (s1.length !== s2.length) {
-    return false;
+  const newSet1 = s1.toLowerCase().split("")
+    .sort()
+    .join("");
+  const newSet2 = s2.toLowerCase().split("")
+    .sort()
+    .join("");
+  if (newSet1 === newSet2) {
+    return true
   }
-  s1 = Array.from(s1.toLowerCase());
-  s2 = Array.from(s2.toLowerCase());
-  s1.sort();
-  s2.sort();
-  for (let i = 0; i < s1.length; i++) {
-    if (s1[i] !== s2[i]) {
-      return false;
-    }
-  }
-  return true;
+  return false;
 }
-
 
 module.exports = anagram;
